@@ -16,9 +16,9 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 
-use eqela:slingc:r317
-use eqela:rocks:r2
-use eqela:jkop:20180726
+use eqela:slingc:r318
+use eqela:rocks:r3
+use eqela:jkop:20180730
 use eqela:jsh:r3
 
 ### Common section
@@ -107,7 +107,7 @@ buildEqelaPackageDll {
 	eqela:jsh delete ${output}/tmp
 	eqela:slingc -target=netcore ${src} -libdir=${eqela:jkop}/src -output=${output}/tmp -OstaticBuild=true
 	eqela:rocks/builder ${output}/tmp/src -output=${output}/tmp/bin -dotnetPath=${eqela:dotnet}
-	eqela:jsh cpto ${output} ${output}/tmp/bin/*.dll
+	eqela:jsh cpto ${output} ${output}/tmp/bin/*.dll ${output}/tmp/bin/apidoc*
 	eqela:jsh delete ${output}/tmp
 }
 
