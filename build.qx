@@ -17,8 +17,8 @@
 #
 
 use eqela:jsh:r3
-use eqela:slingbuild:r7
-set version r8
+use eqela:slingbuild:r9
+set version r10
 
 build {
 	eqela:jsh cpto build/release src/*.qx

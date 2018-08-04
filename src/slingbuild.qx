@@ -16,9 +16,9 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 
-use eqela:slingc:r318
+use eqela:slingc:r319
 use eqela:rocks:r3
-use eqela:jkop:20180730
+use eqela:jkop:20180804
 use eqela:jsh:r3
 
 ### Common section
@@ -100,14 +100,21 @@ buildNetCoreReleaseAll {
 buildEqelaPackageDll {
 	requireValue src
 	requireValue output
+	setDefault name ${=getIdNameForPath(${src})}
+	setDefault version ${=getDateString()}
 	info
 	info "Building Eqela package DLL: ${src} .."
 	info
 	use eqela:dotnet:2.1.301
 	eqela:jsh delete ${output}/tmp
-	eqela:slingc -target=netcore ${src} -libdir=${eqela:jkop}/src -output=${output}/tmp -OstaticBuild=true
+	eqela:slingc -target=netcore ${src} \
+		-Dsling_project_name=${name} \
+		-Dsling_project_version=${version} \
+		-libdir=${eqela:jkop}/src \
+		-output=${output}/tmp \
+		-OstaticBuild=true
 	eqela:rocks/builder ${output}/tmp/src -output=${output}/tmp/bin -dotnetPath=${eqela:dotnet}
-	eqela:jsh cpto ${output} ${output}/tmp/bin/*.dll ${output}/tmp/bin/apidoc*
+	eqela:jsh cpto ${output} ${output}/tmp/bin/*.dll ${output}/tmp/bin/runtimes ${output}/tmp/bin/apidoc*
 	eqela:jsh delete ${output}/tmp
 }
 
@@ -126,9 +133,11 @@ buildEqelaPackageFromSource {
 	requireValue src
 	requireValue name
 	requireValue vendor
+	setDefault name ${=getIdNameForPath(${src})}
+	setDefault version ${=getDateString()}
 	eqela:jsh delete build/packagetmp
-	call buildEqelaPackageDll src=${src} output=build/packagetmp
-	call buildEqelaPackageFile files=build/packagetmp $(*)
+	call buildEqelaPackageDll src=${src} output=build/packagetmp name=${name} version=${version}
+	call buildEqelaPackageFile name=${name} version=${version} files=build/packagetmp $(*)
 }
 
 ### Web section
