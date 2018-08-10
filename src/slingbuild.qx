@@ -16,10 +16,10 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 
-use eqela:slingc:r319
-use eqela:rocks:r3
-use eqela:jkop:20180804
-use eqela:jsh:r3
+use eqela:slingc:r323
+use eqela:rocks:r5
+use eqela:jkop:20180810
+use eqela:jsh:r4
 
 ### Common section
 
