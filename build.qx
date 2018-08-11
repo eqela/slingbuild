@@ -17,12 +17,11 @@
 #
 
 use eqela:jsh:r4
-use eqela:slingbuild:r11
-set version r12
+set version r15
 
 build {
 	eqela:jsh cpto build/release src/*.qx
-	eqela:slingbuild buildEqelaPackageFile files=build/release name=slingbuild vendor=eqela version=${version}
+	eqela:jsh makepkq build/release -vendor=eqela -name=slingbuild -version=${version} -platform=all
 }
 
 clean {
