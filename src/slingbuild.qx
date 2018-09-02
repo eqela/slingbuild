@@ -18,7 +18,7 @@
 
 use eqela:slingc:r325
 use eqela:rocks:r6
-use eqela:jkop:20180820v2
+use eqela:jkop:20180902
 use eqela:jsh:r4
 set dotnet eqela:dotnet:2.1.301
 
