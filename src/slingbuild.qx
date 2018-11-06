@@ -16,9 +16,9 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 
-use eqela:slingc:r325
+use eqela:slingc:r326
 use eqela:rocks:r6
-use eqela:jkop:20180902
+use eqela:jkop:20181104
 use eqela:jsh:r4
 set dotnet eqela:dotnet:2.1.301
 
@@ -129,7 +129,7 @@ buildEqelaPackageDll : src output name version {
 		-output=${output}/tmp \
 		-OstaticBuild=true $(*)
 	eqela:rocks/builder ${output}/tmp/src -output=${output}/tmp/bin -dotnetPath=${eqela:dotnet}
-	eqela:jsh cpto ${output} ${output}/tmp/bin/*.dll ${output}/tmp/bin/runtimes ${output}/tmp/bin/apidoc*
+	eqela:jsh cpto ${output} ${output}/tmp/bin/*.dll ${output}/tmp/bin/*/*.dll ${output}/tmp/bin/runtimes ${output}/tmp/bin/apidoc*
 	eqela:jsh delete ${output}/tmp
 }
 
