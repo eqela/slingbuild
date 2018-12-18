@@ -16,9 +16,9 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 
-use eqela:slingc:r331
+use eqela:slingc:r335
 use eqela:rocks:r7
-use eqela:jkop:20181124
+use eqela:jkop:20181218
 use eqela:jsh:r4
 set dotnet eqela:dotnet:2.1.301
 
@@ -147,7 +147,7 @@ buildEqelaPackageDllIncremental : src output name version {
 		-Dsling_project_version=${version} \
 		-libdir=${eqela:jkop}/src \
 		-builder=${=expandCommand(eqela:rocks/builder)} \
-		-BdotnetPath=${eqela:dotnet} \
+		-BdotnetPath=${eqela:dotnet} -PprojectType=console \
 		-output=${output} $(*)
 }
 
