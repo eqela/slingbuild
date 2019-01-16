@@ -129,7 +129,7 @@ buildEqelaPackageDll : src output name version {
 		-output=${output}/tmp/src \
 		-OstaticBuild=true -PprojectType=console $(*)
 	eqela:rocks/builder ${output}/tmp/src -output=${output}/tmp/bin -dotnetPath=${eqela:dotnet}
-	eqela:jsh cpto ${output} ${output}/tmp/bin/*.dll ${output}/tmp/bin/*/*.dll ${output}/tmp/bin/runtimes ${output}/tmp/bin/apidoc*
+	eqela:jsh cpto ${output} ${output}/tmp/bin/*.dll ${output}/tmp/bin/*.dylib ${output}/tmp/bin/*.so ${output}/tmp/bin/*/*.dll ${output}/tmp/bin/runtimes ${output}/tmp/bin/apidoc*
 	eqela:jsh delete ${output}/tmp
 }
 
