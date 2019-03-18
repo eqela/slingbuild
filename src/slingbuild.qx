@@ -16,9 +16,9 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 
-use eqela:slingc:r335
-use eqela:rocks:r7
-use eqela:jkop:20181218
+use eqela:slingc:r339
+use eqela:rocks:r9
+use eqela:jkop:20190309
 use eqela:jsh:r4
 set dotnet eqela:dotnet:2.1.301
 
@@ -195,6 +195,10 @@ websiteRelease : vendor name version {
 	eqela:jsh cpto build/${id}/resources resources/*
 	eqela:jsh cpto build/${id}/templates templates/*
 	call buildEqelaPackageFile files=build/${id} name=${name} vendor=${vendor} version=${version}
+}
+
+websiteStatic {
+	eqela:rocks/tpltool -output=build/static resources templates
 }
 
 ### Java section
