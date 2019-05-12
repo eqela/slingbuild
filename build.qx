@@ -1,7 +1,7 @@
 
 #
 # This file is part of Eqela Slingbuild
-# Copyright (c) 2018 Eqela Oy
+# Copyright (c) 2019 Eqela Oy
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 #
 
 use eqela:jsh:r4
-set version r32
+set version r37
 
 build {
 	eqela:jsh cpto build/release src/*.qx

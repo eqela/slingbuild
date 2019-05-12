@@ -16,9 +16,9 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 
-use eqela:slingc:r339
+use eqela:slingc:r342
 use eqela:rocks:r9
-use eqela:jkop:20190309
+use eqela:jkop:20190512
 use eqela:jsh:r4
 set dotnet eqela:dotnet:2.1.301
 
