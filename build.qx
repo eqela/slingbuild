@@ -17,7 +17,7 @@
 #
 
 use eqela:jsh:r4
-set version r42
+set version r43
 
 build {
 	eqela:jsh cpto build/release src/*.qx
